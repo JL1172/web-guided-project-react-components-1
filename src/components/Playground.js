@@ -18,7 +18,7 @@ function Playground(props, value) {
   const [count, setCount] = useState(0);
   const [decrement, setDecrement] = useState('Decrement');
 
-  const [spinnerOn, setSpinnerOn] = useState(false)
+  const [spinnerOn, setSpinnerOn] = useState(true)
 
 
 
@@ -46,19 +46,18 @@ function Playground(props, value) {
   if (spinnerOn) {
     return (
       <div className="container">
-        <h3>The spinner is {spinnerOn ? "ON" : 'OFF'}</h3>
-        <button onClick={() => setSpinnerOn(!spinnerOn)}>Turn Spinner Off</button>
+        <h3>Press to open rock, paper, scissors</h3>
+        <button onClick={() => setSpinnerOn(!spinnerOn)}>Press</button>
       </div>
     )
   }
   
   //
-  let Player1 = 'YOU';
-  let Player2 = 'BAD GUY';
+
   let counter = 0;
   let counter1 = 0
   let counter2 = 0; 
-  let counter3 = 0;
+  
   const rockPaperScissorsShoot = (evt) => {
     let intervalID = setInterval(()=> {
         if (counter === 2) {
@@ -114,7 +113,7 @@ function Playground(props, value) {
     setBadWeapon('');
     setWeapon('');
     const shoot = document.querySelector('#shoot')
-    shoot.classList.toggle('game'); 
+    shoot.classList.remove('game'); 
     shoot.style.transition = '.2s'
   }
 
@@ -122,26 +121,28 @@ function Playground(props, value) {
   //a tuple is an array in js that has two items 
   return (
     <>
-      <h1>Hello</h1>
+    <div className="container">
       <h1>{count}</h1>
       <button onClick={doubler}>Increment</button>
       <button onClick={half}>{decrement}</button>
       <button onClick={both}>Return to zero</button>
-      <h3>The spinner is {spinnerOn ? 'ON' : 'OFF'}</h3>
-      <button onClick={() => setSpinnerOn(!spinnerOn)}>Toggle Spinner</button><br /><br /><br /><br />
+      <h3>Press to collapse</h3>
+      {/* <h3>The spinner is {spinnerOn ? 'ON' : 'OFF'}</h3> */}
+      <button onClick={() => setSpinnerOn(!spinnerOn)}>Press</button><br /><br /><br /><br />
+      </div>
       <div className="container">
         <h1><div id ='rock'>Rock</div><div id = 'paper'>Paper</div> <div id = 'scissors'>Scissors</div> <div id = 'shoot'>Shoot</div></h1>
         <h3><em>Your</em> current weapon is: <em>{weapon}</em></h3>
-        <h3>The <em>oppenent's</em> weapon is: <em>{badWeapon}</em></h3>
         <button className="buttonForGame" onClick={rockPaperScissorsShoot} value='scissors'>Pick scissors</button>
         <button className="buttonForGame" onClick={rockPaperScissorsShoot} value='rock'>Pick rock</button>
         <button className="buttonForGame" onClick={rockPaperScissorsShoot} value='paper'>Pick paper</button>
-        <button className="buttonForGame" onClick={clear}>New Game</button>
+        <h3>The <em>opponent's</em> weapon is: <em>{badWeapon}</em></h3>
         <h3>The winner is: {weapon === 'rock' && badWeapon === 'scissors' ? <em className = 'container'>YOU✅</em> : weapon === 'rock' &&
           badWeapon === 'paper' ? 'Bad Guy❌' :
           weapon === 'paper' && badWeapon === 'rock' ? <em className = 'container'>YOU✅</em> : weapon === 'paper' && badWeapon === 'scissors' ?
             "Bad Guy❌" : weapon === 'scissors' && badWeapon === 'paper' ?
             <em className = 'container'>YOU✅</em> : weapon === 'scissors' && badWeapon === 'rock' ? "Bad Guy❌" : !badWeapon && !weapon ? '' : "It is a draw"}</h3><br/><br/><br/><br/><br/><br/>
+            <button className="buttonForGame" onClick={clear}>New Game</button>
       </div>
     </>
   )

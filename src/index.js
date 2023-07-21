@@ -28,7 +28,6 @@ function App(props) {
       <h1>Welcome to React, {props.track} rockstars!!</h1>
       <h2>Name: {props.name}</h2>
       <h3>Age: {props.age}</h3>
-      <h3>Are you happy: {props.happy}</h3>
       <Playground /> 
     </div>
   )
