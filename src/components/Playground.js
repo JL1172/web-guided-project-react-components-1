@@ -95,11 +95,11 @@ function Playground(props, value) {
     },500)
     setTimeout(() => {
       const shoot = document.querySelector('#shoot') 
-      shoot.style.transform = '90(deg)'
       shoot.classList.toggle('game')
       shoot.style.transition = '.2s'
     },5000)
     setTimeout(() => {
+      evt.target.disable = true;
       let { value } = evt.target
     setWeapon(value)
 
