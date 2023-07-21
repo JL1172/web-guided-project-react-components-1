@@ -1,23 +1,28 @@
 * {
   box-sizing: border-box;
 }
+
 body {
   background-color: rgb(244, 244, 244);
   color: rgb(65, 75, 60);
   font-family: 'Bitter', serif;
 }
+
 h2 {
   top: 3%;
   left: 5%;
   transform-origin: center left;
 }
-button, input {
+
+button,
+input {
   margin: 3px;
   color: #7a6a6a;
   border: 1px solid rgb(210, 210, 210);
   border-radius: 3px;
   height: 1.8em;
 }
+
 .column() {
   display: flex;
   flex-direction: column;
@@ -25,6 +30,7 @@ button, input {
   justify-content: center;
   flex-wrap: wrap;
 }
+
 .container {
   background-color: white;
   margin: 16px;
@@ -34,21 +40,24 @@ button, input {
   border-radius: 16px;
   .column();
 }
+
 @keyframes rotate {
   to {
     transform: rotate(360deg)
   }
 }
+
 .spinner {
   height: 3em;
   display: flex;
   align-items: center;
   animation: rotate 1s linear forwards infinite;
 }
+
 .squares {
   display: grid;
   grid-template-columns: 50px 50px;
-  grid-template-rows: 50px 50px; 
+  grid-template-rows: 50px 50px;
   column-gap: 10px;
   row-gap: 10px;
 
@@ -63,8 +72,26 @@ button, input {
     }
   }
 }
+
 .programmers {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+}
+
+button:hover {
+  letter-spacing: .05rem;
+  box-shadow: 1px 1px 1px grey;
+  transition: .2s;
+}
+button{
+  transition: .05s;
+}
+.game {
+  color: black;
+  letter-spacing: .2rem;
+  font-size: larger;
+}
+span {
+  font-weight: bold;
 }
